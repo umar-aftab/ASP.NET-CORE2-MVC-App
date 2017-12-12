@@ -1,0 +1,5 @@
+﻿{
+  "ConnectionStrings": {
+    "ShBazmoolDbContext": "Data Source=UMARABUHAFS;Initial Catalog=ShBazmool;Integrated Security=True"
+  }
+}

@@ -1,0 +1,53 @@
+﻿@model ShBazmool.ViewModels.HomeViewModel
+@{
+    Layout = "_Layout";
+}
+
+
+
+    <article id="audio">
+        <table class="table-bordered">
+            <tr><th colspan="7">   جديد الشروحات العلمية <img src="~/img/microphone.png" class="th-img" /></th></tr>
+            @foreach (var item in Model.ExplanationViews.Explains)
+            {
+
+                <tr><td><img src="~/img/download.png" /></td><td><a href="@Url.Action("Listen","Explanation", new { id = item.ID})"><img src="~/img/play.png" /></a></td><td><img src="~/img/share.png" /></td> <td>@item.Date.ToShortDateString() <img src="~/img/clock.png" /></td> <td> @item.BookName <img src="~/img/course.png" /></td> <td>@item.Title</td><td><a href="@Url.Action("Listen","Explanation", new { id = item.ID})"><img src="~/img/sound.png" /></a></td></tr>
+
+            }
+        </table>
+
+    </article>
+    <article id="audio">
+        <table class="table-bordered">
+            <tr><th colspan="7"> جديد المحاضرات العلمية <img src="~/img/microphone.png" class="th-img" /></th></tr>
+
+            @foreach (var item in Model.LectureViews.Audios)
+            {
+
+                <tr><td><img src="~/img/download.png" /></td><td><a href="@Url.Action("Listen", "Lecture", new { id = item.ID })"><img src="~/img/play.png" /></a></td><td><img src="~/img/share.png" /></td> <td>@item.Date.ToShortDateString()<img src="~/img/clock.png" /></td> <td> 55 <img src="~/img/eye.png" /></td> <td>@item.Title</td><td><a href="@Url.Action("Listen", "Audio", new { id = item.ID })"><img src="~/img/sound.png" /></a></td></tr>
+
+            }
+        </table>
+    </article>
+    <article id="audio">
+        <table class="table-bordered">
+            <tr><th colspan="7">  جديد المقالات <img src="~/img/article.png" class="th-img" /></th></tr>
+            @foreach (var item in Model.ArticleViews.Articles)
+            {
+
+                <tr><td><img src="~/img/download.png" /></td><td><a href="@Url.Action("Read","Article", new { id = item.ID})"><img src="~/img/openBook.png" /></a></td><td><img src="~/img/share.png" /></td> <td>@item.DatePublished.ToShortDateString() <img src="~/img/clock.png" /></td> <td><a href="@Url.Action("Read","Article", new { id = item.ID})"> @item.Title </a></td><td><a href="@Url.Action("Read","Article", new { id = item.ID})"><img src="~/img/pen.png" /></a></td></tr>
+
+            }
+        </table>
+    </article>
+    <article id="audio">
+        <table class="table-bordered">
+            <tr><th colspan="7">  جديد الكتب <img src="~/img/register.png" class="th-img" /></th></tr>
+            @foreach (var item in Model.WritingViews.Books)
+            {
+
+                <tr><td><img src="~/img/download.png" /></td><td><a href="@Url.Action("Read","Writing", new { id = item.ID})"><img src="~/img/openBook.png" /></a></td><td><img src="~/img/share.png" /></td> <td>@item.Category<img src="~/img/register.png" /></td> <td><a href="@Url.Action("Read","Writing", new { id = item.ID})"> @item.Title </a></td><td><a href="@Url.Action("Read","Writing", new { id = item.ID})"><img src="~/img/pen.png" /></a></td></tr>
+
+            }
+        </table>
+    </article>

@@ -1,0 +1,13 @@
+﻿@model ShBazmool.Models.Explanation
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = "_AdminIndex";
+}
+<article class="form-group" id="formPage">
+    <form asp-action="Edit" method="post" enctype="multipart/form-data">
+        <input asp-for="ID" type="hidden" />
+        @{
+            Html.RenderPartial("_ExplanationForm");
+        }
+    </form>
+</article>

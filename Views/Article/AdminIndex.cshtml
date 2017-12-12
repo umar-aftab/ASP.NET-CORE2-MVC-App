@@ -1,0 +1,67 @@
+﻿@model ShBazmool.ViewModels.ArticleViewModel
+@{
+    Layout = "_AdminIndex";
+}
+
+<br />
+<article class="audio">
+    <table class="table-bordered">
+        <tr><th colspan="4">  المقالات <img src="~/img/article.png" class="th-img" /></th></tr>
+        @foreach (var item in Model.Articles)
+        {
+
+            <tr>
+
+                <td><a href="@Url.Action("Delete","Article", new { id = item.ID})"> مسح <img src="~/img/pen.png" /></a></td>
+                <td><a href="@Url.Action("Edit","Article", new { id = item.ID})"> تعديل <img src="~/img/pen.png" /></a></td>
+                <td><a href="@Url.Action("ReadAdmin","Article", new { id = item.ID})"> إقرأ <img src="~/img/lamp.png" /></a></td>
+                <td><a href="@Url.Action("ReadAdmin","Article", new { id = item.ID})"> @item.Title <img src="~/img/article.png" /></a></td>
+            </tr>
+
+        }
+    </table>
+
+    @if (Model.PagerView.EndPage > 1)
+    {
+        <ul class="pagination">
+            @if (Model.PagerView.CurrentPage > 1)
+            {
+                <li>
+                    <a href="~/Explanation/Index">First</a>
+                </li>
+                <li>
+                    <a href="~/Explanation/Index?page=@(Model.PagerView.CurrentPage - 1)">Previous</a>
+                </li>
+            }
+            @for (var page = Model.PagerView.StartPage; page <= Model.PagerView.EndPage; page++)
+                {
+                <li class="@(page == Model.PagerView.CurrentPage ? "active" : "")">
+                    <a href="~/Explanation/Index?page=@(page)">@(page)</a>
+                </li>
+
+            }
+            @if (Model.PagerView.CurrentPage < Model.PagerView.TotalPages)
+                {
+                <li>
+                    <a href="~/Explanation/Index?page=@(Model.PagerView.CurrentPage + 1)">Next</a>
+
+                </li>
+                <li>
+                    <a href="~/Explanation/Index?page=@(Model.PagerView.TotalPages)">Last</a>
+
+                </li>
+
+            }
+        </ul>
+    }
+
+</article>
+
+<article class="audio">
+    <table class="table-bordered">
+       <tr>
+            <td><a href="@Url.Action("Insert","Article")"> أضف مقال جديد <img src="~/img/pen.png" /></a></td>
+       </tr>
+    </table>
+</article>
+

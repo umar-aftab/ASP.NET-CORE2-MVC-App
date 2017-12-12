@@ -1,0 +1,13 @@
+﻿@model ShBazmool.Models.Article
+@{
+    Layout = "_AdminIndex";
+}
+
+<article id="audioPlayer">
+    <table class="table-bordered" id="pageTable">
+        <tr><th> @Model.Title </th></tr>
+        <tr><td> @Model.Author </td></tr>
+        <tr><td> @Model.DatePublished</td></tr>
+        <tr><td> @Html.Raw(Model.Material)</td></tr>
+    </table>
+</article>

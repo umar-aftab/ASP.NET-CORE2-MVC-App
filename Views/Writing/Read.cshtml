@@ -1,0 +1,36 @@
+﻿@model ShBazmool.Models.Writing
+@{
+    Layout = "_ReadPages";
+
+    var base64 = Convert.ToBase64String(Model.Material);
+    var book = string.Format("data:application/pdf;base64,{0}", base64);
+}
+
+
+
+<article id="audioPlayer">
+    <table class="table-bordered" id="pageTable">
+        <tr>
+            <th>
+                @Model.Title
+            </th>
+        </tr>
+        <tr>
+            <td>
+                @Model.Author
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Model.DatePublished
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <object data="@book" type="application/pdf" width="600" height="900">
+                  
+                </object>
+            </td>
+        </tr>
+    </table>
+</article>

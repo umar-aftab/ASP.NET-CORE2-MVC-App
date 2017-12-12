@@ -1,0 +1,52 @@
+﻿@model ShBazmool.ViewModels.ExplanationViewModel
+@{
+    Layout = "_Layout";
+}
+
+<br />
+<article class="audio">
+    <table class="table-bordered">
+        <tr><th colspan="7">  الشروحات العلمية <img src="~/img/microphone.png" class="th-img" /></th></tr>
+        @foreach (var item in Model.Explains)
+        {
+
+             <tr><td><img src="~/img/download.png" /></td><td><a href="@Url.Action("Listen","Explanation", new { id = item.ID})"><img src="~/img/play.png" /></a></td><td><img src="~/img/share.png" /></td> <td>@item.Date.ToShortDateString() <img src="~/img/clock.png" /></td> <td> @item.BookName <img src="~/img/course.png" /></td> <td>@item.Title</td><td><a href="@Url.Action("Listen","Explanation", new { id = item.ID})"><img src="~/img/sound.png" /></a></td></tr>
+           
+        }
+    </table>
+    
+        @if (Model.PagerView.EndPage > 1)
+        {
+            <ul class="pagination">
+                @if(Model.PagerView.CurrentPage > 1)
+                {
+                <li>
+                    <a href="~/Explanation/Index">First</a>
+                </li>
+                <li>
+                    <a href="~/Explanation/Index?page=@(Model.PagerView.CurrentPage - 1)">Previous</a>
+                </li>
+                }
+                @for (var page = Model.PagerView.StartPage; page <= Model.PagerView.EndPage; page++)
+                {
+                    <li class="@(page == Model.PagerView.CurrentPage ? "active" : "")">
+                        <a href="~/Explanation/Index?page=@(page)">@(page)</a>
+                    </li>
+
+                }
+                @if (Model.PagerView.CurrentPage < Model.PagerView.TotalPages)
+                {
+                    <li>
+                        <a href="~/Explanation/Index?page=@(Model.PagerView.CurrentPage + 1)">Next</a>
+
+                    </li>
+                    <li>
+                        <a href="~/Explanation/Index?page=@(Model.PagerView.TotalPages)">Last</a>
+
+                    </li>
+
+                }
+            </ul>
+        }
+
+</article>

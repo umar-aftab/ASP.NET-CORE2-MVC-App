@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="~/reset.css" />
+    <link rel="stylesheet" href="~/bootstrap.css" />
+    <link rel="stylesheet" href="~/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script type="text/javascript" src="~/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="~/bootstrap.js"></script>
+    
+    <title>موقع الشيخ محمد بازمول</title>
+</head>
+<body>
+    <section class="header">
+        <a href="@Url.Action("Index","Home")"><i class="fa fa-home" aria-hidden="true" style="font-size:5rem;color:azure;"></i></a>
+    </section>
+    <section class="name">
+        <img src="~/img/banner.png" />
+    </section>
+    @RenderBody()
+</body>
+</html>

@@ -1,0 +1,16 @@
+﻿@model ShBazmool.ViewModels.WritingViewModel
+@{
+    Layout = "_Layout";
+}
+
+<article class="audio">
+    <table class="table-bordered">
+        <tr><th colspan="7">  الكتب <img src="~/img/register.png" class="th-img" /></th></tr>
+        @foreach (var item in Model.Books)
+        {
+
+            <tr><td><img src="~/img/download.png" /></td><td><a href="@Url.Action("Read","Writing", new { id = item.ID})" target="_blank"><img src="~/img/openBook.png" /></a></td><td><img src="~/img/share.png" /></td> <td>@item.Category<img src="~/img/register.png" /></td> <td><a href="@Url.Action("Read","Writing", new { id = item.ID})" target="_blank"> @item.Title </a></td><td><a href="@Url.Action("Read","Writing", new { id = item.ID})" target="_blank"><img src="~/img/pen.png" /></a></td></tr>
+
+        }
+    </table>
+</article>

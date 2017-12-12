@@ -1,0 +1,60 @@
+﻿@model ShBazmool.Models.Writing
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+
+        <div class="text-danger" asp-validation-summary="All"></div>
+        <div class="form-group">
+            <label asp-for="Title" class="control-label">اسم الكتاب</label>
+            <input asp-for="Title" type="text" class="form-control" />
+            <span asp-validation-for="Title" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Author" class="control-label">اسم الشيخ</label>
+            <input asp-for="Author" type="text" value="الشيخ محمد بن عمر بازمول" class="form-control" />
+            <span asp-validation-for="Author" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Category" class="control-label">اختر نوع الكتاب</label>
+            <select asp-for="Category">
+                <option value="السلاسل">السلاسل</option>
+                <option value="العقيدة">العقيدة</option>
+                <option value="المنهج">المنهج</option>
+                <option value="القرآن وعلومه">القرآن وعلومه</option>
+                <option value="الحديث وعلومه">الحديث وعلومه</option>
+                <option value="السيرة">السيرة</option>
+                <option value="الفقه">الفقه</option>
+                <option value="الأصول">الأصول</option>
+                <option value="طلب العلم">طلب العلم</option>
+                <option value="الأخلاق والسلوك">الأخلاق والسلوك</option>
+                <option value="الردود">الردود</option>
+                <option value="السياسة">السياسة</option>
+                <option value="المطويات">المطويات</option>
+            </select>
+            <span asp-validation-for="Category" class="text-danger"></span>
+        </div>
+
+
+        <div class="form-group">
+            
+            <input asp-for="DatePublished" value="@DateTime.Now" type="datetime" />
+            <label asp-for="DatePublished" class="control-label">تاريخ</label>
+            <span asp-validation-for="DatePublished" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Material" class="control-label">اختر الكتاب للتحميل</label>
+            <input asp-for="Material" type="file" class="form-control" />
+            <span asp-validation-for="Material" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Description" class="control-label">المحتوى</label>
+            <textarea asp-for="Description" type="text" class="form-control"></textarea>
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <input type="Submit" value="ارفع" class="btn btn-default" />
+        </div>

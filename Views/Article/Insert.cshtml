@@ -1,0 +1,13 @@
+﻿@model ShBazmool.Models.Article
+@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    Layout = "_AdminIndex";
+}
+<article class="form-group" id="formPage">
+    <form asp-action="Insert" method="post">
+        @{
+            Html.RenderPartial("_ArticleForm");
+        }
+    </form>
+</article>

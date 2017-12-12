@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="~/reset.css" />
+    <link rel="stylesheet" href="~/bootstrap.css" />
+    <link rel="stylesheet" href="~/style.css" />
+    
+    <script type="text/javascript" src="~/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="~/bootstrap.js"></script>
+    <title>موقع الشيخ محمد بازمول</title>
+</head>
+<body>
+
+    <section class="header">
+        <a href="#">Login</a>
+        <nav class="socialMedia"></nav>
+        <aside class="search">
+            <form></form>
+        </aside>
+    </section>
+    
+    <section class="mainContent">
+            <aside class="menuItems">
+                <nav class="mainNavagation">
+                    <ul>
+                        <li><a href="@Url.Action("Index","Home")"><img src="~/img/home.gif" /></a></li>
+                        <li><a href="@Url.Action("Index","Lecture")"><img src="~/img/lectures.gif" /></a></li>
+                        <li><a href="@Url.Action("Index","Explanation")"><img src="~/img/explanation.gif" /></a></li>
+                        <li><a href="@Url.Action("Index","Writing")"><img src="~/img/books.gif" /></a></li>
+                        <li><a href="@Url.Action("Index","Article")"><img src="~/img/articles.gif" /></a></li>
+                        <li><a href="@Url.Action("Bio","Home")"><img src="~/img/aboutShaikh.gif" /></a></li>
+                        <li><a href="@Url.Action("Contact","Home")"><img src="~/img/contact.gif" /></a></li>
+                    </ul>
+                </nav>
+            </aside>
+        @RenderBody()
+    </section>
+        <section class="bottomContent">
+            <img src="~/img/footerContent.png" />
+        </section>
+        <section class="footer">
+            <aside class="copyright"></aside>
+        </section>
+</body>
+</html>

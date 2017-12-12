@@ -1,0 +1,12 @@
+﻿@model ShBazmool.Models.Lecture
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{ 
+    Layout = "_AdminIndex";
+}
+<article class="form-group" id="formPage">
+    <form asp-action="Insert" method="post" enctype="multipart/form-data"> 
+        @{ 
+            Html.RenderPartial("_LectureForm");
+        }
+    </form>
+</article>

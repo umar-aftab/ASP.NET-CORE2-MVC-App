@@ -1,0 +1,22 @@
+﻿@model ShBazmool.Models.Explanation
+@{
+    Layout = "_ReadPages";
+
+    var base64 = Convert.ToBase64String(Model.Material);
+    var audio = string.Format("data:audio/mp3;base64,{0}", base64);
+}
+
+
+
+<article id="audioPlayer">
+    <table class="table-bordered" id="pageTable">
+        <tr><th colspan="2"> مشغل مواد الصوتية <img src="~/img/microphone.png" class="th-img" /></th></tr>
+        <tr><td>@Model.Title </td> <td>:اسم الدرس</td></tr>
+        <tr><td>@Model.Author </td> <td> :اسم الشيخ</td></tr>
+        <tr><td>@Model.BookName </td> <td> :اسم الكتاب</td></tr>
+        <tr><td>@Model.Date </td> <td>تاريخ اللقاء الدرس <img src="~/img/clock.png" /></td></tr>
+        <tr><td>@Model.Location </td> <td> مكان اللقاء الدرس <img src="~/img/play.png" /></td></tr>
+        <tr><td><audio controls><source src="@audio" type="audio/mp3" /> </audio></td></tr>
+
+    </table>
+</article>

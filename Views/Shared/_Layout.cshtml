@@ -1,0 +1,94 @@
+﻿@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="~/reset.css" />
+    <link rel="stylesheet" href="~/bootstrap.css" />
+    <link rel="stylesheet" href="~/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <script type="text/javascript" src="~/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="~/bootstrap.js"></script>
+    <title>موقع الشيخ محمد بازمول</title>
+</head>
+<body>
+
+    <section class="header">
+        @if (!User.Identity.IsAuthenticated)
+        {
+        <a href="@Url.Action("Login", "Account")"><i class="fa fa-sign-in" aria-hidden="true" style="font-size:3rem;color:azure;"></i></a>
+        }
+        else
+        {
+            <form asp-action="Logout" asp-controller="Account" method="post">
+                <div class="input-group">
+                    <span>@User.Identity.IsAuthenticated</span>
+                    <button type="submit" class="btn btn-link">Logout</button>
+                </div>
+            </form>
+
+        }
+        <nav class="socialMedia">
+            <ul>
+                <li><a href="#"><img src="~/img/soundcloud.png" /></a></li>
+                <li><a href="#"><img src="~/img/youtube.png" /></a></li>
+                <li><a href="#"><img src="~/img/instagram.png" /></a></li>
+                <li><a href="#"><img src="~/img/googleplus.png" /></a></li>
+                <li><a href="#"><img src="~/img/twitter.png" /></a></li>
+                <li><a href="#"><img src="~/img/facebook.png" /></a></li>
+                <li><a href="#"><img src="~/img/telegram.png" /></a></li>
+                <li><a href="#"><img src="~/img/whatsapp.png" /></a></li>
+            </ul>
+        </nav>
+        <aside class="search">
+            <form></form>
+        </aside>
+    </section>
+
+    <section class="name">
+        <img src="~/img/banner.png" />
+    </section>
+
+  <!--  <section class="slider">
+        <img src="~/img/sliderBack.png" />
+        <aside class="left"></aside>
+        <article class="sliderItems">
+
+            <ul>
+                <li><a href="#"><img src="~/img/left.gif"></a></li>
+                <li><a href="#"><img src="~/img/course.png"></a></li>
+                <li><a href="#"><img src="~/img/course.png"></a></li>
+                <li><a href="#"><img src="~/img/course.png"></a></li>
+                <li><a href="#"><img src="~/img/course.png"></a></li>
+                <li><a href="#"><img src="~/img/course.png"></a></li>
+                <li><a href="#"><img src="~/img/right.gif"></a></li>
+            </ul>
+
+        </article>
+      <aside class="right"></aside>  
+    </section> -->
+    
+    <section class="mainContent">
+            <aside class="menuItems">
+                <nav class="mainNavagation">
+                    <ul>
+                        <li><a href="@Url.Action("Index","Home")"><img src="~/img/home.png" /></a></li>
+                        <li><a href="@Url.Action("Index","Lecture")"><img src="~/img/lectures.png" /></a></li>
+                        <li><a href="@Url.Action("Index","Explanation")"><img src="~/img/lectures.png" /></a></li>
+                        <li><a href="@Url.Action("Index","Writing")"><img src="~/img/books.png" /></a></li>
+                        <li><a href="@Url.Action("Index","Article")"><img src="~/img/articles.png" /></a></li>
+                        <li><a href="@Url.Action("Bio","Home")"><img src="~/img/aboutShaikh.png" /></a></li>
+                        <li><a href="@Url.Action("Contact","Home")"><img src="~/img/contact.png" /></a></li>
+                    </ul>
+                </nav>
+            </aside>
+        @RenderBody()
+    </section>
+        <section class="bottomContent">
+            <img src="~/img/footerContent.png" />
+        </section>
+        <section class="footer">
+            <aside class="copyright"></aside>
+        </section>
+</body>
+</html>
