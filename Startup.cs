@@ -23,8 +23,8 @@ namespace ShBazmool
         {
             configuration = new ConfigurationBuilder()
                                 .AddEnvironmentVariables()
-                                .AddJsonFile(env.ContentRootPath + "/config.json")
-                                .AddJsonFile(env.ContentRootPath + "/config.development.json",true)
+                                .AddJsonFile(env.ContentRootPath + "/config.json",true)
+                                .AddJsonFile(env.ContentRootPath + "/config.development.json")
                                 .Build();
         }
 
@@ -52,6 +52,14 @@ namespace ShBazmool
                         options.AccessDeniedPath = new PathString("/Writing/AdminIndex");
                         options.AccessDeniedPath = new PathString("/Writing/Edit");
                         options.AccessDeniedPath = new PathString("/Writing/Insert");
+                        options.AccessDeniedPath = new PathString("/Home/Messages");
+                        options.AccessDeniedPath = new PathString("/Home/ReadMessage");
+                        options.AccessDeniedPath = new PathString("/AudioClip/AdminIndex");
+                        options.AccessDeniedPath = new PathString("/AudioClip/Insert");
+                        options.AccessDeniedPath = new PathString("/AudioClip/Edit");
+                        options.AccessDeniedPath = new PathString("/Fatawa/AdminIndex");
+                        options.AccessDeniedPath = new PathString("/Fatawa/Insert");
+                        options.AccessDeniedPath = new PathString("/Fatawa/Edit");
                         options.LoginPath = new PathString("/Account/Login");
                     }
                 );
